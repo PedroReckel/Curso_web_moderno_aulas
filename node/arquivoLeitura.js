@@ -1,4 +1,4 @@
-// Formas diferentes de ler informações de arquivos:
+// Formas diferentes de ler informações de arquivos JSON:
 
 const fs = require('fs')
 
