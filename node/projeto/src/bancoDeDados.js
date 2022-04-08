@@ -5,16 +5,14 @@ const sequence = {
 
 const produtos = {}
 
-function salvarProduto (produtos) {
-    if (!produtos.id) {
-        produtos.id = sequence.id
-        produtos[produto.id] = produto
-        return produtos
-    }
+function salvarProduto (produto) {
+    if (!produto.id) produto.id = sequence.id
+    produtos[produto.id] = produto
+    return produto
 }
 
 function getProduto (id) {
-    return produtos[id] || {}
+    return produtos[id] || {} 
 }
 
 function getProdutos () {
