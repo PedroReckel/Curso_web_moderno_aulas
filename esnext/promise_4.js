@@ -2,7 +2,7 @@ function gerarNumerosEntre(min, max, tempo) {
     if(min > max) [max, min] = [min, max]  // Ivertendo a valor das duas variaveis caso o usuario coloque o valor maior primeiro 
     return new Promise(resolve => {
         setTimeout(function() {
-            const aleatorio= parseInt(Math.random() * (max - min + 1) + min)
+            const aleatorio = parseInt(Math.random() * (max - min + 1) + min)
             resolve(aleatorio)
         }, tempo)
     })
