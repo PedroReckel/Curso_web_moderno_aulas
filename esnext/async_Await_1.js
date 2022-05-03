@@ -1,3 +1,6 @@
+// async makes a function return a Promise
+//await makes a function wait for a Promise
+
 function esperarPor (tempo = 2000) {
     return new Promise((resolve) => {
         setTimeout(() => resolve(), tempo)
