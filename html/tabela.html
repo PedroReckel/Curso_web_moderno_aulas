@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+</head>
+<body>
+    <table>
+        <caption>Produtos</caption>
+        <tHead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+            </tr>
+        </tHead>
+        <tbody>  <!-- A <tbody>tag é usada para agrupar o conteúdo do corpo em uma tabela HTML. -->
+            <tr>
+                <td>iPad</td>
+                <td>3289,00</td>
+                <td>5</td>
+                <td>16445,00</td>
+            </tr>
+            <tr>
+                <td>Sansung s9</td>
+                <td>2649,00</td>
+                <td>8</td>
+                <td>21192,00</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td> <!-- O colspanatributo define o número de colunas que uma célula deve abranger. -->
+                <td>37637,00</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+    
+        th, td{
+            padding: 10px;
+        }
+    
+        thead tr {
+            border-bottom: solid 3px #444;
+        }
+    
+        tbody tr:hover{
+            background-color: #dedede;
+        }
+    
+        tfoot{
+            background-color: #444;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
