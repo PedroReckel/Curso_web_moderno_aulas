@@ -19,7 +19,7 @@ async function gerarMegaSena(qtdeNumeros, tentativas = 1) {
         }
         return numeros 
     } catch(e) {    
-        if(tentativas > 10) {
+        if(tentativas > 10) { 
             throw 'Não deu certo'
         } else {
             return gerarMegaSena(qtdeNumeros, tentativas + 1)
