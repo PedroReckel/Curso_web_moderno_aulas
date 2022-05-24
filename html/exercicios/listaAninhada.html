@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  ul, #myUL {
+    list-style-type: none;
+  }
+  
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .caret {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  .caret-down::before {
+    transform: rotate(90deg);  
+  }
+  
+  .nested {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+    </style>
+    <title>ListaAninhada</title>
+</head>
+<body>
+    <h1>Projeto</h1>
+    <ul class="myUL">
+    <li><span class="caret">Backend</span>
+        <ul class="nested">
+        <li><span class="caret">App</span>
+            <ul class="nested">
+            <li>produto.js</li>
+            <li>usuario.js</li>
+            <li>vendas.js</li>
+            </ul>
+        </li>
+        <li><span class="caret">Config</span>
+            <ul class="nested">
+            <li>banco.js</li>
+            <li>rotas.js</li>
+            <li>servidor.js</li>
+            </ul>
+        </li>   
+        </ul>
+    </li>
+    <li><span class="caret">Fontend</span>
+        <ul class="nested">
+        <li><span class="caret">Public</span>
+            <ul class="nested">
+            <li>app.css</li>
+            <li>app.js</li>
+            <li>app.html</li>
+            </ul>
+        </li>   
+        </ul>
+    </li>
+    </ul>
+    <script>
+        var toggler = document.getElementsByClassName("caret")
+
+        for(let i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active")
+                this.classList.toggle("caret-down")
+            })
+        }
+    </script>
+</body>
+</html>
