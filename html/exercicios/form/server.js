@@ -6,7 +6,13 @@ app.use(bodyparser.urlencoded({ extended: true }))
 
 app.post('/usuarios',(req, resp) => {  // Aqui eu vou fazer uma requisição do tipo post em cima da url usuarios
     console.log(req.body)  // Para eu ver o que eu tô mandando no lodo do servidor
-    resp.send('<h1>Parabéns!</h1>')  // Para ver o que eu tô mandando no lado do browser
+    resp.send('<h1>Parabéns! Usuário incluido</h1>')  // Para ver o que eu tô mandando no lado do browser
+})
+
+app.post('/usuarios/:id', (req, resp) => {
+    console.log(req.params.id)
+    console.log(req.body)
+    resp.send('<h1>Parabéns! Usuário alterado</h1>')
 })
 
 app.listen(3003)

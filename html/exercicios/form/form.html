@@ -4,14 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input, textarea, select {
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            display: inline;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
     <h1>Formulário</h1>
 
-    <form action="http://localhost:3003/usuarios" method="post">
+    <form action="" method="post">
         <input type="text" name="nome">
-        <button>Incluir</button>
+        <input type="password" name="senha">
+        <textarea name="bio" id="" cols="30" rows="10"></textarea>
+        <div>
+            <input type="radio" name="tipo" value="admin"> admin
+            <input type="radio" name="tipo" value="regular"> Regular
+        </div>
+        <div>
+            <input type="checkbox" name="ativo" value="ativo"> Ativo
+        </div>
+        <select name="estados" id="">
+            <option value="">Selecione:</option>
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="ES">Espiríto Santo</option>
+            <option value="MG">Minas Gerais</option>
+        </select>
+        <select name="intereses" id="" multiple size="7">
+            <option value="JS">JavaScript</option>
+            <option value="Java">Java</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+            <option value="csharp">C#</option>
+            <option value="ruby">Ruby</option>
+        </select>
+        <button formaction="http://localhost:3003/usuarios">Incluir</button>
+        <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
     </form>
 </body>
 </html>
