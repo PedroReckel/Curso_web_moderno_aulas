@@ -19,7 +19,8 @@
 <body>
     <h1>Formulário</h1>
 
-    <form action="" method="post">
+    <form action="" method="post"> <!-- Em formulários é melhor que você use o mais o post do que o GET. A vantagem do GET é que quando você envia uma requisição essa url pode ser replicada novamente -->
+        <input type="hidden" name="id" value="3">
         <input type="text" name="nome">
         <input type="password" name="senha">
         <textarea name="bio" id="" cols="30" rows="10"></textarea>
@@ -45,8 +46,8 @@
             <option value="csharp">C#</option>
             <option value="ruby">Ruby</option>
         </select>
-        <button formaction="http://localhost:3003/usuarios">Incluir</button>
-        <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+        <button formaction="http://localhost:3030/usuarios">Incluir</button>
+        <button formaction="http://localhost:3030/usuarios/3">Alterar</button>
     </form>
 </body>
 </html>

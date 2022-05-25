@@ -9,10 +9,10 @@ app.post('/usuarios',(req, resp) => {  // Aqui eu vou fazer uma requisição do 
     resp.send('<h1>Parabéns! Usuário incluido</h1>')  // Para ver o que eu tô mandando no lado do browser
 })
 
-app.post('/usuarios/:id', (req, resp) => {
+app.post('/usuarios/:id', (req, resp) => {  
     console.log(req.params.id)
     console.log(req.body)
     resp.send('<h1>Parabéns! Usuário alterado</h1>')
 })
 
-app.listen(3003)
+app.listen(3030)
