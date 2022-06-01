@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+#meuVideo {
+    display: block;
+    margin: auto;
+}
+
+#myProgress {
+    width: 100%;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    width: 800px;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 10px;
+  }
+
+/* #myProgress {
+    height: 20px;
+    width: 500px;
+    border: solid 1px #444;
+    border-radius: 10px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#myBar > div {
+    background-color: red;
+    color: #fff;
+    height: 100%;
+    text-align: right;
+    font-size: 14px;
+    width: 0%;
+} */
+
+button {
+    color: red;
+    background-color: aqua;
+    border: 0px;
+    border-radius: 5px;
+}
