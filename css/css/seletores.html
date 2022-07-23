@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* p + ul Buscar a tag p dentro de um ol*/
+        /* p ~ ol Buscar a tag p dentro de um ul*/
+        /* [feira] Buscar qualquer elemento que tenha o nome feira */
+        /* [feira=casa] Buscar qualquer elemento que contenha casa dentro de feira */
+        /* [feira~=casa] Buscar possiveis elementos que contenham casa dentro de feira*/
+        /* [feira*=sa Buscar possiveis elementos que contenham sa dentro de feira*/
+        /* span:nth-child(1) Buscar uma tag spam que seje filho de alguem e esteje na primeira posição*/
+        /* section > :nth-child(even) Buscar dentro de uma section todos os filhos impares*/
+
+        section > :nth-child(even) {
+            color: #ff0;
+            background-color: #f77;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
