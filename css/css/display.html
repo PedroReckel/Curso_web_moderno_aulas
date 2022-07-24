@@ -5,7 +5,42 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        /* Display inline não considera altura e largura
+        
+           Display block considera altura e largura 
+        
+        */
+
+        body {
+            background-color: rgb(255, 123, 99);
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        div {
+            background-color: green;
+        }
+
+        span {
+            background-color: dodgerblue;
+        }
+
+        li {
+            background-color: purple;
+        }
+
+        div, span, li {
+            width: 50%;
+            width: 200px;
+            height: 80px;
+            padding-top: 30px;
+            text-align: center;
+            display: inline; /* Os elementos ficarão na mesma linha */ 
+            display: block;  /* Cara elemento terá sua propria linha */
+            display: inline-block; /* Manter os intens na mesma linha, porém considerando a mesma altura e largura */
+        }
     </style>
 </head>
 
