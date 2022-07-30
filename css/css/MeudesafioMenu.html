@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .cabecalho {
+            background-color: rgba(30, 28, 28, 0.855);
+            height: 80px;
+            border-bottom: solid 5px rgb(59, 144, 255);
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img{
+            height: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu > a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;    
+            transition-duration: 0.7s;      
+        }
+
+        .menu > a:hover {
+            background-color: rgb(59, 144, 255);
+        }
+
+        .autenticacao {
+            float: none;
+            display: inline-block;
+        }
+
+        .autenticacao button {
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: #555;
+            color: white;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <a href="#inicio">Início</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <aside class="autenticacao">
+            <button type="submit">Login</button>
+            <button type="submit">Login</button>
+        </aside>
+    </header>
+
+    <script>
+        // ...
+    </script>
+</body>
+
+</html>
