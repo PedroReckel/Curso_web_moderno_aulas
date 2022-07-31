@@ -17,6 +17,7 @@
             background-color: rgba(30, 28, 28, 0.855);
             height: 80px;
             border-bottom: solid 5px rgb(59, 144, 255);
+            box-sizing: content-box;
         }
 
         .logo {
@@ -30,7 +31,14 @@
         }
 
         .menu-toggle {
-            display: none;
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
         }
 
         .menu {
@@ -44,7 +52,8 @@
             text-decoration: none;
             color: white;
             padding: 10px;    
-            transition-duration: 0.7s;      
+            transition-duration: 0.7s;
+            font-size: 1.3em;      
         }
 
         .menu > a:hover {
@@ -52,19 +61,37 @@
         }
 
         .autenticacao {
-            float: none;
-            display: inline-block;
+            float: right;
+            height: 80px;
+            padding: 25px;
         }
 
-        .autenticacao button {
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background-color: #555;
-            color: white;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
+        .autenticacao > button {
+            border-radius: 30px;
+            padding: 10px 25px;
+        }
+
+        .autenticacao > button:hover {
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+
+        @media(min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        @media(max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        @media(max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -92,7 +119,16 @@
     </header>
 
     <script>
-        // ...
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(e)
+            console.log(oldURL, newURL)
+            const oldMenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newMenu = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldMenu && oldMenu.classList.remove('selected')
+            newMenu && newMenu.classList.add('selected')
+        }
     </script>
 </body>
 
