@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul><li>Pedro</li><li>Ana</li><li>Bia</li></ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {   // Nesse caso não poderia ser uma arrow function, pois o this iria apontar para window 
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log()  // Vai puxar todos os elementos
+        lista.childNodes.log()  // Vai puxar todos os childNodes
+
+        const primeiro = lista.firstChild
+        primeiro.log()  // Puxar o primeiro filho da tag UL
+        primeiro.nextSibling.log() // Puxar o proximo parente do elemento
+
+        const ultimo = lista.lastChild
+        ultimo.log()  // Puxar o ultimo filho da tag UL
+        ultimo.previousSibling.log()  // Puxar parente anterior do elemento
+
+        lista.children.log() // Vai puxar todos os elementos
+        lista.firstElementChild.log()  // Puxar o primeiro elemento
+        lista.lastElementChild.log()  // Puxar o ultimo elemento
+        
+        lista.parentNode.previousElementSibling.log()  // Retornar o elemento parente anterior ao elemento atual  
+        lista.parentNode.nextElementSibling.log() // Retornar o elemento parente posterior ao elemento atual
+
+        document.querySelectorAll('div ul li').log()
+    </script> 
+</body>
+
+</html>
