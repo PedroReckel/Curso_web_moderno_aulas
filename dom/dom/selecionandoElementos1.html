@@ -13,15 +13,16 @@
         document.getElementById('primeiro').classList.add('destaque')
 
         const divs = document.getElementsByTagName('div')
-        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))  // Primeira forma de trasnformar um HTML collections em um array
 
-        const divsArray = [...divs]
+        const divsArray = [...divs]  // Segunda forma de transformar um HTML collections em um array agora usando o operador spread
         divsArray.forEach(e => e.classList.add('destaque'))
 
         const ultimosElementos = document.getElementsByClassName('ultimo')
         for(let e of ultimosElementos) {
             e.classList.remove('destaque')
         }
+
     </script>
 </body>
 </html>
