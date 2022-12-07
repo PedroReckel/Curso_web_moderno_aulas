@@ -9,9 +9,25 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+
+        <!-- onclick="navegarEm5s(event)" Primeira forma (Menos recomendada) --> 
+        <a esperar-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+
+        // const a = document.querySelector('a')   Segunda forma (Ainda não é recomendada)
+        // a.onclick = navegarEm5s
+
+        const a = document.querySelector('[esperar-um-pouco]')  // Terceira forma (É a melhor forma)
+        a.onclick = navegarEm5s
+
+        function navegarEm5s(e) {
+            e.preventDefault()  // Quando coloco o preventDefault o comportamento padrão não vai acontecer e eu posso trabalhar com o elemento do jeito que eu quiser
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target 
+                window.location.href = link.href
+            }, 5000)
+        }
     </script>
 </body>
