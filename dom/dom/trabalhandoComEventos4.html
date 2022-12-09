@@ -31,6 +31,38 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+
+        // Para o evento de clicar
+        const submit = document.querySelector('[wm-submit]')
+        submit.onclick = function(e) {
+            e.preventDefault()  // Eu deixo esse "preventDefault" para o navegador não executar o evento padrão dele, que nesse caso seria o de executar a ação apos o usuário clicar no botão
+            // console.log(e)
+            // console.log(e.target.parentNode)
+            const form = e.target.parentNode
+            const formData = new FormData(form) // Usando o new FormData eu tenho os dados do formulário a minha disposição
+            formData.append('ajax', true)
+            console.log(formData.get('q'))  // Pegando o valor que eu mandei pesquisar
+            console.log(formData.has('hl')) // Pegando o valor da linguagem que eu quero fazer minha pesquisa
+
+            for(let dado of form) {
+                console.log(dado)
+            }
+        }
+
+        // Para o evento de enviar
+        // const form = document.forms[0]
+        // form.onsubmit = function(e) {
+        //     e.preventDefault()
+
+        //     const form = e.target
+        //     const formData = new FormData(form)
+        //     formData.append('ajax', true)
+        //     console.log(formData.get('q'))  
+        //     console.log(formData.has('hl')) 
+
+        //     for(let dado of form) {
+        //         console.log(dado)
+        //     }
+        // }
     </script>
 </body>

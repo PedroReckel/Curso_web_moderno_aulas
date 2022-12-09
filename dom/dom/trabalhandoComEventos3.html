@@ -49,15 +49,16 @@
         items.forEach((item, index) => {
             item.draggable = true
             item.id = item.id || `draggable-item-${index}` // Aqui eu certifico que o item tem id, então se o mesmo não tiver id eu adiciono "draggable-item-${index}"
-            // console.log(item.id)
+            //console.log(item)
             item.ondragstart = e => {  // Quando eu começar a arrastar o elemento ele vai setar um evento "dataTransfer.setData" e eu vou pegar o e.tagert.id
                 e.dataTransfer.setData('item-id', e.target.id)
+                //console.log(e)
             }
         })
 
         const dropzones = document.querySelectorAll('[wm-dropzone]')
         dropzones.forEach(dropzone => {
-            dropzone.ondragover = e => e.preventDefault()
+            dropzone.ondragover = e => e.preventDefault() // Se eu não chamar esse "preventDefault" o proximo evento não será chamado 
             dropzone.ondrop = function(e) {
                 const id = e.dataTransfer.getData('item-id')
                 const item = document.getElementById(id)
