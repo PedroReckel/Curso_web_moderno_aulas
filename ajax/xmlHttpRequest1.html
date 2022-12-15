@@ -50,7 +50,7 @@
             })
 
         const tabela = document.createElement('table')
-        linhas.array.forEach(tabela.appendChild(linhas))
+        linhas.forEach(linha => tabela.appendChild(linha))
         document.body.appendChild(tabela)
         }
 
