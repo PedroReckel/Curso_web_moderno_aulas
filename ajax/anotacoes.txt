@@ -1,0 +1,9 @@
+// Dependências e sua funções:
+
+1 -> body-parser : É responsável por ler os dados do corpo da requisição 
+
+2 -> Express :
+
+3 -> Multer : É para fazer o upload
+
+4 -> Nodemon : Para rodar automaticamete a aplicação após cada nova atualização

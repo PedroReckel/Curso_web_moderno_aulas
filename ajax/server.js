@@ -1,0 +1,10 @@
+const bodyParser = require('body-parser') // Responsavel por fazer o parser (interpretar) o corpo da requisição
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 8080
+
+app.use(express.static('.')) // Dentro da pasta atual na qual o arquivo server.js se encontra sirva os arquivos estaticos 
+app.use(bodyParser.urlencoded({ extended: true })) // Se vinher algum formato a partir de um submit de um formulario esse código será responsável por ler os dados e transformar tudo em objeto
+app.use(bodyParser.json()) // Se vinher um JSON dentro do body da requisição esse código vai transformar o JSON em objeto 
+
+app.listen(port, () => console.log(`Server running on port ${port}`))
