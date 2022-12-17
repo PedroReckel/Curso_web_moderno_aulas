@@ -25,8 +25,8 @@
         
         function ajaxUpload(config) {
             const xhr = new XMLHttpRequest()
-
-            if (xhr.upload) {
+ 
+            if (xhr.upload) {  
                 xhr.upload.onprogress = e => {
                     const atual = e.loaded
                     const total = e.total
@@ -42,7 +42,7 @@
         document.querySelector('input[type=file]').onchange = e => {
             const formData = new FormData()
             const inputFile = e.target
-            formData.append(inputFile.name, inputFile.files[0])
+            formData.append(inputFile.name, inputFile.files[0]) // Vou pegar o primeiro arquivo no indice 0
 
             ajaxUpload({
                 url: "upload",

@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({ storage }).single('arquivo')
+const upload = multer({ storage }).single('arquivo')  // Na função single eu chamo o nome do arquivo que vai vir no corpo da requisição
 
 app.post('/upload', (req, res) => {
     upload(req, res, err => {
@@ -30,4 +30,4 @@ app.post('/upload', (req, res) => {
     })
 })
 
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(port, () => console.log(`Servidor rodando na porta: ${port}`))
