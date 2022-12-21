@@ -30,4 +30,18 @@ app.post('/upload', (req, res) => {
     })
 })
 
+app.post('/formulario', (req, res) => {
+    res.send({
+        ...req.body, // Tudo o que veio como resposta eu vou jogar para dentro do objeto que eu vou devolver para o front-end
+        id: 1
+    })
+})
+
+app.get('/parOuImpar', (req, res) => {
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
 app.listen(port, () => console.log(`Servidor rodando na porta: ${port}`))

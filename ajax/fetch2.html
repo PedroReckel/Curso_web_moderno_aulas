@@ -29,6 +29,38 @@
     </form>
     <div id="resultado"></div>
     <script>
-        // ...
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+            console.log(e)
+
+            const form = e.target // O elemento que disparou o evento
+            const data = new FormData(form)
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data) // Enviando os dados para o back-end
+            }
+
+            const resultado = document.getElementById('resultado')
+            // Usando promise:
+            // fetch(form.action, options)
+            //     .then(resp => resp.json())
+            //     .then(json => {
+            //         resultado.innerHTML = JSON.stringify(json)
+            //     })
+            //     .catch(e => {
+            //         resultado.innerHTML = e
+            //     })
+
+            // Usando async await
+            try {
+                const resp = await fetch(form.action, options) // form.action é a url que eu quero disparar (Chamar) lá no meu back-end
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e) {
+                resultado.innerHTML(e)
+            }
+        
+        }
     </script>
 </body>
