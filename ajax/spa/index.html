@@ -25,6 +25,33 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        function navegarViaAjax(url, seletor, push = true) {
+            if(!url || !seletor) return
+            const elemento = document.querySelector(seletor)
+            fetch(url)
+                .then(resp => resp.text())
+                .then(html => {
+                    elemento.innerHTML = html
+                    if(push) {
+                        history.pushState({ seletor }, "Página AJAX", url)  // Adicionando a volta para a pagina anterior no historico
+                    } // Vou estar na mesma página, porém na URL do browser eu vou ter o historico de navegação
+                })
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value // Vou pegar o valor desse atributo
+            const seletorDestino = link.attributes['wm-destino'].value // Vou pegar o valor desse atributo
+
+            link.onclick = e => {
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino)
+            }
+        })
+
+        window.onpopstate = e => { // Eu uso o onpopstate para retirar o primeiro elemento da pilha do historico de navegação
+            if(e.state) {
+                navegarViaAjax(window.location.href, e.state.seletor, false)
+            }
+        } 
     </script>
 </body>
