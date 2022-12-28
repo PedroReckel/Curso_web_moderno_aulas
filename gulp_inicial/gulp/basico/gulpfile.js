@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const { series, parallel} = require("gulp")
+const { series, parallel } = require("gulp")
 
 function antes1(cb) {
   console.log("Tarefa antes 1");
