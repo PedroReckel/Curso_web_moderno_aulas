@@ -6,7 +6,7 @@ function depsCSS(cb) {
     return gulp.src('node_modules/font-awesome/css/font-awesome.css')
         .pipe(uglifycss( {"uglyComments": false} ))
         .pipe(concat('deps.min.css'))
-        .pipe(gulp.dest('buld/assets/css'))
+        .pipe(gulp.dest('build/assets/css'))
 }
 
 function depsFonts(cb) {

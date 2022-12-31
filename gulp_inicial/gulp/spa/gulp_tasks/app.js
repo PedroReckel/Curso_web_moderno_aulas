@@ -6,21 +6,21 @@ const concat = require('gulp-concat')
 const htmlmin = require('gulp-htmlmin')
 const sass = require('gulp-sass')(require('sass'))
 
-function appHTML(cb) {
+function appHTML() {
     return gulp.src('src/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('build'))
 }
 
-function appCSS(cb) {
+function appCSS() {
     return gulp.src('src/assets/sass/index.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(uglifycss({ "uglyComments": true }))
-        .pipe(concat('estilo.min.css'))
-        .pipe(gulp.dest('buid/assets/css'))
+        .pipe(concat('app.min.css'))
+        .pipe(gulp.dest('build/assets/css'))
 }
 
-function appJS(cb) {
+function appJS() {
     return gulp.src('src/assets/js/**/*.js')
         .pipe(babel({ presets: ['ENV'] }))
         .pipe(uglify())
@@ -28,10 +28,15 @@ function appJS(cb) {
         .pipe(gulp.dest('build/assets/js'))
 }
 
-function appIMG(cb) {
+function appIMG() {
     return gulp.src('src/assets/imgs/**/*.*')
         .pipe(gulp.dest('build/assets/imgs'))
 }
+
+gulp.task('appHTML', appHTML)
+gulp.task('appCSS', appCSS)
+gulp.task('appJS', appJS)
+gulp.task('appIMG', appIMG)
 
 module.exports = {
     appHTML,
