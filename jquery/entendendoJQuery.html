@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        $('div').hide(5000).show(5000)
+        console.log($('div').get(0))
+        console.log($.isEmptyObject({name: null})) // Função utilitaria para saber se esse objeto está ou não vazio
+        console.log(jQuery.inArray(3, [1, 2, 3])) // Vai me falar se o numero 3 está contido dentro do array. // Vai me retornar -1 se não estiver contido e o indice aonde o numero se encontra se este está presente no array. Nesse exemplo vai me retornar 2, que é indice aonde o 3 se encontra dentro do array
+        
+        $.fn.fundoVerde = function() {
+            this.css('background-color', 'green')
+            return this // Tenho que retornar o proprio objeto para conseguir encadear as chamadas abaixo:
+        }
+
+        $('body').fundoVerde().fadeOut(10000)
+    </script>
+</body>
