@@ -1,7 +1,7 @@
 const modoDev = process.env.NODE_ENV !== 'production' // Vai setar se a aplicação webpack vai rodar no modo de desenvolvimento ou produção. Se ele começar com o npm start a aplicação vai rodar em modo desenvolvimento e se eu rodar a aplicação com o npm build a aplicação vai rodar no modo produção
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
@@ -14,12 +14,18 @@ module.exports = {
     plugins: [new MiniCssExtractPlugin({
         filename: "estilo.css"
     })],
+    devServer: {
+        contentBase: "./public",
+        port: 9000
+    },
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({ // Minimizar js
-                cache: true,
-                parallel: true
-            }),
+            new TerserPlugin({
+                parallel: true,
+                terserOptions: {
+                    ecma: 6,
+                }
+            }) ,
             new OptimizeCSSAssetsPlugin({}) // // Minimizar CSS
         ]
     },
@@ -32,6 +38,9 @@ module.exports = {
                     'css-loader', // interpreta @import, url()...
                     'sass-loader',
                 ]
+            }, {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: ['file-loader']
             }]
     }
 }

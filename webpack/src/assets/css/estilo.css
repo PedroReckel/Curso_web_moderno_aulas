@@ -1,3 +1,7 @@
 body {
-    background-color: red;
+    background-color: aqua;
+    background-image: url(/src/img/logoCod3r.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
