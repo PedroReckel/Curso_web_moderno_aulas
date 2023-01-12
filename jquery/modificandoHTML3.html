@@ -12,14 +12,25 @@
     <h1>Modificando HTML #03</h1>
     <div id='conteudo'></div>
 
-    <script>
-        const pessoas = [
+    <script> // Essa callback vai ser chamada na hora em que a página já estiver carregada
+        $(document).ready(function() { // Esse tipo de função é bom porque eu fujo do escopo global com ela
+            const alunos = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
-        
-        // ...
+            
+            const linhas = alunos.map((p) => {
+                const tdNome = $('<td>').html(p.nome)
+                const tdNota = $('<td>').html(p.nota)
+                return $('<tr>').append(tdNome, tdNota)    
+            })
+
+            const tabela = $('<table>').append(linhas)
+            $('#conteudo').append(tabela)
+
+        })
+
     </script>
 </body>
