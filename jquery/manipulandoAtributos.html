@@ -23,6 +23,41 @@
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
     <script>
-        // ...
-    </script>
+        function Relogio(elemento) {
+            // console.log(elemento)
+            const horaCerta = $('<p>')
+            const botaoMenos = $('<button>').html('-')
+            const botaoMais = $('<button>').html('+')
+                
+            const $elemento = $(elemento) 
+            $elemento.append(horaCerta, botaoMenos, botaoMais)
+
+            const getIntervaloAtual = () => parseInt($elemento.attr('wm-relogio')) //Ler atributo, vai retonar a String 1000 e o parseInt vai transformar em numero
+            
+            let temporizador = null
+            const iniciar = () => {
+                if(temporizador) clearInterval(temporizador) // Se o temporizador estiver vazio ele vai limpar o intervalo para parar o temporizador atual
+                temporizador = setInterval(() => {
+                    horaCerta.html(new Date().toLocaleString('pt-BR'))
+                }, getIntervaloAtual())
+            }
+
+            const alterarIntervalo = delta => {
+                const novo = Math.max(getIntervaloAtual() + delta, 1000)
+                $elemento.attr('wm-relogio', novo)
+                iniciar()
+            }
+
+            botaoMenos.click(e => alterarIntervalo(1000))
+            botaoMais.click(e => alterarIntervalo(-1000))
+            iniciar()
+        }
+
+        $('[wm-relogio]').each((i, e) => new Relogio(e)) // o "E" nesse caso é um elemento da DOM e o "I" é o indice 
+
+        // $('[wm-relogio]').attr('opa') // Ler atributo
+        // $('[wm-relogio]').attr('opa', 3) // Alterar ou incluir um atributo
+        // $('[wm-relogio]').attr({opa: 1, novo: true}) // Incluindo vários atriubutos a partir de um mesmo objeto
+        // $('[wm-relogio]').RemoveAttr('opa').removeAttr('novo') // Remover atributo
+    </script> 
 </body>

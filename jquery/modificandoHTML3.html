@@ -20,15 +20,15 @@
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
-            
-            const linhas = alunos.map((p) => {
-                const tdNome = $('<td>').html(p.nome)
-                const tdNota = $('<td>').html(p.nota)
-                return $('<tr>').append(tdNome, tdNota)    
-            })
 
-            const tabela = $('<table>').append(linhas)
-            $('#conteudo').append(tabela)
+        const listas = alunos.map((p) => {
+            const tdNome = $('<td>').append(p.nome)
+            const tdNota = $('<td>').append(p.nota)
+            return $('<tr>').append(tdNome, tdNota)
+        })
+
+        const table = $('<table>').append(listas)
+        $('#conteudo').append(table)
 
         })
 
