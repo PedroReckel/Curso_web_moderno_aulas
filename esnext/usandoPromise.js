@@ -23,8 +23,8 @@ const getTurma = letra => {
     })
 }
 
-Promise.all([getTurma('A'), getTurma('B'), getTurma('C')])
-    .then(turmas => [].concat(...turmas))
+Promise.all([getTurma('A'), getTurma('B'), getTurma('C')])  // Eu posso mandar várias promises para essa função promise.all
+    .then(turmas => [].concat(...turmas))  // Eu tenho uma matriz com três elementos que são arrays, aqui eu estou simplismente espalhar elas na chamada do método concat e no final eu vou ter apenas um unico array com todos os alunos 
     .then(alunos => alunos.map(aluno => aluno.nome))
     .then(nome => console.log(nome))
     .catch(e => console.log(e.message))   // Sempre que eu estiver trabalhando com promise, se eu coloquei o then, é bom colocar o cath também!
