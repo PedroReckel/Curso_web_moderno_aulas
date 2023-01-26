@@ -22,7 +22,7 @@
             segundoDezena, segundoUnidade, mensagem)
 
         const regex = new RegExp(/(\d\d):(\d\d):(\d\d)/)
-        const horarioAlvo = regex.exec(opcoesFinais.horario)
+        const horarioAlvo = regex.exec(opcoesFinais.horario)  
         // console.log(horarioAlvo)
 
         let temporizador = setInterval(() => {
