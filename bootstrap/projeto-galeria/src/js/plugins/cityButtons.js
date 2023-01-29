@@ -3,12 +3,16 @@ import $ from 'jquery'
 const duration = 300
 
 function filterByCity(city) {
-    $('[wm-city]').each(function(i, e) {
+    $('[wm-city]').each(function (i, e) {
         const isTarget = $(this).attr('wm-city') === city // Validando qual o valor do atributo city
-        if(isTarget) {   // Se ele for true, irá aparecer todas as fotos da cidade escolhida // Se for false (null) ele vai trazer todas as cidades 
-            $(this).fadeIn(duration) 
+            || city === null
+        if (isTarget) { // Se ele for true, irá aparecer todas as fotos da cidade escolhida // Se for false (null) ele vai trazer todas as cidades 
+            $(this).parent().removeClass('d-none')
+            $(this).fadeIn(duration)
         } else {
-            $(this).fadeOut(duration)
+            $(this).fadeOut(duration, () => {
+                $(this).parent().addClass('d-none')
+            })
         }
     })
 }
@@ -25,13 +29,15 @@ $.fn.cityButtons = function() {
         return btn    
     })
 
-    const btnAll = $('<button>').addClass(['btn', 'btn-info']).html('Todas')
+    const btnAll = $('<button>').addClass(['btn', 'btn-info', 'active']).html('Todas')
     btnAll.click(e => filterByCity(null))
     btns.push(btnAll) // Adicionando o botão "todas" no array de botões
     
     const btnGroup = $('<div>').addClass(['btn-group'])
-    btnGroup.appen(btns)
+    btnGroup.append(btns)
 
-    cityButtons.html(btnGroup)
+    $(this).html(btnGroup)
     return this
 }
+
+$('[wm-city-buttons]').cityButtons()
