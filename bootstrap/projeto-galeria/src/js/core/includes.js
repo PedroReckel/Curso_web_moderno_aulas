@@ -1,5 +1,13 @@
 import $ from 'jquery'
 
+const loadHtmlSuccessCallback = []
+
+export function onLoadHtmlSuccess(callback) {
+    if(!loadHtmlSuccessCallback.includes(callback)) {
+        loadHtmlSuccessCallback.push(callback)
+    }
+}
+
 function loadIncludes(parent) {
     if(!parent) parent = 'body'
     $(parent).find('[wm-include]').each(function(i, e) {
@@ -10,6 +18,7 @@ function loadIncludes(parent) {
                 $(e).html(data) // Jogando o dado de retorno dentro do elemento wm-include
                 $(e).removeAttr('wm-include') // Retirando a propriedade wm-include para que não aja nenhuma interpretação errada dela
 
+                loadHtmlSuccessCallback.forEach(callback => callback(data))
                 loadIncludes(e) // Em cima do próprio elemento que eu acebei de obter eu vou de novo de forma recursiva chamar a própria função para que ele encontrar dentro dele outros elemento que possuem a propriedade wm-include
             }
         })
