@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Multi from './componentes/Multiplos' // Todo componente criado por mim tem que começar o letra maiuscula 
+import Saudacao from './componentes/Saudacao' // Todo componente criado por mim tem que começar o letra maiuscula 
+import Pai from './componentes/Pai'
+import Filho from './componentes/Filho'
 
 ReactDOM.render(
     <div>
-        <Multi.BoaTarde nome="Ana"/>
-        <Multi.BoaNoite nome="Bia"/>
+        <Pai nome="Pedro" sobrenome="Reckel">
+            {/* Como passo os componentes Filhos aqui? */}
+            <Filho nome="Jonatas" />
+            <Filho nome="Ester"   />
+        </Pai>
     </div>
 , document.getElementById('root'))
