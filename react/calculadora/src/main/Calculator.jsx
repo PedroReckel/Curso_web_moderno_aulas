@@ -7,7 +7,7 @@ export default class Calculator extends Component {
 
     constructor(props) {
         super(props)
-        this.clearMemory = this.clearMemory.bind(this)
+        this.clearMemory = this.clearMemory.bind(this) // Usando o bind para ele referenciar  
         this.setOperation = this.setOperation.bind(this)
         this.addDigit = this.addDigit.bind(this)
     }

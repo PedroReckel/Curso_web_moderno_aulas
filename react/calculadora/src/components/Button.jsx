@@ -2,7 +2,7 @@ import React from 'react'
 import './Button.css'
 
 export default props => {
-    let classes = 'button'
+    let classes = 'button '
     // Se a propriedade operation for passada para o botão ele vai adicionar a classe operation se não vai retornar vazia
     classes += props.operation ? 'operation' : ''
     classes += props.double ? 'double' : ''
