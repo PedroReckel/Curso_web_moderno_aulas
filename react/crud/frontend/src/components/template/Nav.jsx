@@ -6,7 +6,7 @@ export default props =>
     <aside className='menu-area'>
         <nav className='menu'>
             {/*Refatorar em casa!! Aula 424*/}
-            <NavItem href="#/" icon="home" title="Início"/>
-            <NavItem href="#/users" icon="users" title="Usuários"/>
+            <NavItem href="/" icon="home" title="Início"/>
+            <NavItem href="/users" icon="users" title="Usuários"/>
         </nav>
     </aside>

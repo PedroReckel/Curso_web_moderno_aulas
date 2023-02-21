@@ -1,11 +1,14 @@
 {
-    "users": [{
-        "id": 1,
-        "name": "Pedro Reckel Roberte",
-        "email": "pedroreckel90@gmail.com"
-    }, {
-        "id": 2,
-        "name": "Evanete Maria Reckel",
-        "email": "eva.reckel@gmail.com"
-    }]
+  "users": [
+    {
+      "id": 1,
+      "name": "Pedro Reckel Roberte",
+      "email": "pedroreckel90@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Evanete Maria Reckel",
+      "email": "eva.reckel@gmail.com"
+    }
+  ]
 }
