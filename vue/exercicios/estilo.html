@@ -7,14 +7,28 @@
     <script src="/js/vue.min.js"></script>
     <style>
         .vermelho {
-            background-color: red;
+            color: red;
         }
+
     </style>
 </head>
 <body class="exercicio">
-
+    <div id="app" @click="aplicarEstilo"
+        :class="{vermelho: aplicarCor}">
+        Teste
+    </div>
     <script>
-        // ...
+        new Vue({
+            el: "#app",
+            data: {
+                aplicarCor: false
+            },
+            methods: {
+                aplicarEstilo() {
+                    return this.aplicarCor = !this.aplicarCor
+                }
+            }
+        })
     </script>
 </body>
 </html>
