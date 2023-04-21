@@ -14,6 +14,21 @@
       "name": "Galaxy S23 Ultra",
       "price": 8000,
       "id": 3
+    },
+    {
+      "name": "Geladeira",
+      "price": "1999.99",
+      "id": 4
+    },
+    {
+      "name": "Gopro Hero 10",
+      "price": "3000.00",
+      "id": 5
+    },
+    {
+      "name": "Lapis ",
+      "price": "2.50",
+      "id": 6
     }
   ]
 }

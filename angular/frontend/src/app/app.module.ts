@@ -19,6 +19,11 @@ import { RedDirective } from './directives/red.directive';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ProductReadComponent } from './components/products/product-read/product-read.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     ProductCrudComponent,
     RedDirective,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductReadComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent] // Defini o componente que vai ser carregado inicialmente 
