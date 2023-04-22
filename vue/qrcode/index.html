@@ -14,8 +14,7 @@
         <h1>{{ title }}</h1>
         <div>
             <input type="text" size="25"
-                placeholder="Digite para gerar o QRCode"
-                :value="text" @input="onData">
+                placeholder="Digite para gerar o QRCode" @input="onData">
         </div>
         <div v-if="text" class="output">
             <img :src="newQRcode" alt="QRCode">

@@ -14,21 +14,23 @@
         <p> <a :href="link">Canal</a> </p>
         <p> 
             <input type="text" v-model="nome"> <br> <!-- Aqui eu uso v-model para fazer um to way data binding -->
-            <span>{{ nome }}</span>
+            <input type="text" v-model="sobrenome"> <br>
+            <span>{{ nome }}{{ sobrenome }}</span>
         </p>
     </div>
     <script>
         new Vue({
             el: "#app",
             data: {
-                nome: "Maria",
+                nome: "Pedro",
+                sobrenome: "Reckel",
                 link: "https://youtube.com/cod3rcursos"
             },
-            watch: {
-                nome(novoValor) {
-                    console.log(novoValor.toUpperCase())
-                }
-            }
+            // watch: {
+            //     nome(novoValor) {
+            //         console.log(novoValor.toUpperCase())
+            //     }
+            // }
         })
     </script>
 </body>
