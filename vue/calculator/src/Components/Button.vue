@@ -1,7 +1,8 @@
 <template>
+    <!-- Quando o evento de onClick for chamado ele vai emitir (enviar) o label do botão para o evento -->
     <button class="button" 
-        @click="$emit('onClick', label)"
-        :class="{ double, triple, operation }">
+        @click="$emit('onClick', label)"  
+        :class="{ double, triple, operation }">  <!-- Aqui ele vai aplicar a classe que tiver o atributo como verdadeiro -->
         {{ label }}
     </button>
 </template>
