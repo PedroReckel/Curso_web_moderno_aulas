@@ -1,0 +1,11 @@
+// Buscar todos os estados que tem alguma cidade com o nome de sorocaba
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+])
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} }, // Buscar todos os estados que tem alguma cidade com o nome de sorocaba e suas cidades
+    { $unwind: "$cidades"}, // Separar as cidades em documentos JSON diferentes
+    { $match: {"cidades.nome": "Sorocaba"} }, // Trazer somente a cidade de sorocaba
+    { $project: {_id: "$cidades._id"} } // Trazendo somente o ID da cidade
+])

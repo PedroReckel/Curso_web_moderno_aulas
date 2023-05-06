@@ -1,0 +1,17 @@
+// Mostrando o nome dos estados e os nomes das suas cidades.
+db.estados.aggregate([
+    { $project: {nome: 1, "cidades.nome": 1, _id: 0} }   
+])
+
+// Somar todas as populações das cidades que estão nos estados
+db.estados.aggregate([
+    { $project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} }  // Como eu usei o nome do atributo do lado direito estão sempre que for do lado direito eu preciso usar o "$"
+])
+
+// Somar a populacao total das cidades retornadas no project
+db.estados.aggregate([
+    { $project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0} },
+    { $group: {_id: null, populacaoTotal: {$sum: "$populacao" } } },
+    { $project: { _id: 0, populacaoTotal: 1} }  // Colocando outro project para não aparecer o ID no retorno na consulta
+])
+

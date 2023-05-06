@@ -6,5 +6,7 @@ db.estados.find({$or: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty()
 db.estados.find({populacao: {$exists: true}}).pretty()
 db.estados.find().skip(1).limit(2) 
 db.estados.count()
+// Monstrar a primeira cidade com a sigla SP
 db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1, _id: 0})
+// Monstrar o nome de todas as cidades de com a sigla SP
 db.estados.find({sigla: "SP"}, {"cidades.nome": 1, _id: 0})
