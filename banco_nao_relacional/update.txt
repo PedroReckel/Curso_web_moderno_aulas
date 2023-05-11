@@ -8,3 +8,5 @@ db.estados.update(
 )
 
 db.estados.find({populacao: {$exists: true}}, {_id: 0, nome: 1})
+
+db.empresas.update({nome: "Bradesco"},{$push: {estadoID: "64545661b40f198fad3309d6"}})

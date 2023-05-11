@@ -1,0 +1,29 @@
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}},
+    {$lookup: {
+        from: "estados",  //  De qual collection
+        localField: "estadoId",  // Qual campo é "chave estrangeira" na outra collection
+        foreignField: "_id",  
+        as: "estado"  // Qual o atributo será criado com o lookup
+    }},
+    {$unwind: "$estado"},
+]).pretty()
+
+
+
+
+db.empresas.aggregate([
+    {$match: {nome: "Vale"}},
+    {$lookup: {
+        from: "estados",
+        localField: "cidadeId",
+        foreignField: "cidades._id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"},
+    {$unwind: "$estado.cidades"},
+    {$addFields: { mesmaCidade: {$cmp: ["$estado.cidades._id", "$cidadeId"]} } },
+    {$match: { mesmaCidade: 0}},
+]).pretty()
+
+{$match: {"estados.cidades._id": "$cidadeId"}},
